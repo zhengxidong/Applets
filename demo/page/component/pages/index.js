@@ -34,7 +34,7 @@ Page({
         name: '选项卡',
         open: false,
         pages: ['swipeTab1', 'swipeTab2', 
-        'form', 'input', 'label', 'picker', 
+        'swipeTab3', 'input', 'label', 'picker', 
         'picker-view', 'radio', 'slider', 'switch', 'textarea']
       }, 
       {

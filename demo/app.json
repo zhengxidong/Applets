@@ -2,13 +2,14 @@
   "pages": [
     "page/component/pages/index",
     "page/component/pages/swipeTab1/swipeTab1",
-    "page/component/pages/swipeTab2/swipeTab2"
+    "page/component/pages/swipeTab2/swipeTab2",
+    "page/component/pages/swipeTab3/swipeTab3"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#2d80ff",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "示例列表",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#7A7E83",
