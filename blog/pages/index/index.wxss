@@ -112,7 +112,9 @@
 }
 
 .on {
-    border-bottom: solid 2px #db363e;
+    /* border-bottom: solid 2px #db363e; */
+    border-bottom: solid 2px #CD96CD;
+    
 }
 
 .box {

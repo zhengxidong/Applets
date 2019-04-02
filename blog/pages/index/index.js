@@ -1,5 +1,6 @@
 //var musicUrl = 'http://www.ytmp3.cn/down/49676.mp3'
-var musicUrl = 'https://www.itellyou.site/MoveYourBody.mp3'
+//var musicUrl = 'https://www.itellyou.site/MoveYourBody.mp3'
+var musicUrl = 'https://www.itellyou.site/pianai.mp3'
 //获取音频上下文
 const backgroundAudioManager = wx.getBackgroundAudioManager();
 

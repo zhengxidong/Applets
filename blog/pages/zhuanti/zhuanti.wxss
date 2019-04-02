@@ -1,77 +1,44 @@
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
+.contain{
+ width: 100%;
+ height: 100%;
 }
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
+.tab{
+ width: 100%;
+ height: 100rpx;
+ position: fixed;
+ top: 0;
+ left: 0;
+ z-index: 100;
+ white-space: nowrap;
+ box-sizing: border-box;
+ overflow: hidden;
+ line-height: 100rpx;
+ 
 }
-
-.list-item {
-  height: 120rpx;
-  line-height: 120rpx;
-  align-items: center;
-  border-bottom: 1px solid #e0e0e0;
+.tab-item{
+ display: inline-block;
+ width: 20%;
+  /* height: 90%; */
+ text-align: center;
+ font-size: 14px;
+ color: #8f9193;
 }
+.active{
+ /* color: #ff500c; */
+ color: #cd96cd;
 
-.list-item-l {
-  flex: 1;
-  align-items: center;
+ /* height: 96%;
+ border-bottom-color: #ff500c;
+ border-bottom-style: solid;
+  border-bottom-width: 1px; */
 }
-
-.list-item-r {
-  margin-left: auto;
-  padding: 0 10rpx;
+.content{
+ padding-top: 100rpx;
+ box-sizing: border-box;
+ text-align: center;
+ font-size: 14px;
 }
-
-.list-item-r .icon-left1 {
-  color: #90aac8;
-}
-
-.border-radius {
-  border-radius: 20rpx;
-}
-
-page, .container {
-  height: 100%;
-}
-
-.tabbar {
-  height: 80rpx;
-  background-color: #2a76cd;
-  color: #fff;
-  font-size: 14px;
-  align-items: center;
-  justify-content: space-around;
-  position: relative;
-}
-
-.tabitem {
-  width: 120rpx;
-  text-align: center;
-  color: #e0e0e0;
-  font-weight: 400;
-}
-
-.tabitem-active {
-  color: #fff;
-}
-
-.tabindicator {
-  position: absolute;
-  width: 0rpx;
-  height: 6rpx;
-  background-color: #fff;
-  bottom: 0;
-  left: 0;
-}
-
-.tab-content {
-  height: 100%;
-}
-
-.scrollview-content {
-  flex: 1;
+.content-item{
+ overflow-y: scroll;
+ /* height:100%; */
 }

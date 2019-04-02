@@ -1,129 +1,68 @@
-
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    tabitemConsume: {},
-    tabitemRecharge: {},
-    activeTabId: null,
-    rechargeList: (function () {
-      var arr = [];
-      for (var i = 0; i < 20; i++) {
-        arr.push({ id: i, name: '充值记录' + i })
-      }
-      //console.log(arr);
-      return arr;
-    })(),
-    consumeList: (function () {
-      var arr = [];
-      for (var i = 0; i < 20; i++) {
-        arr.push({ id: i, name: '消费记录' + i })
-      }
-      //console.log(arr);
-      return arr;
-    })()
+    menuList: [{
+      name: "快车"
+    }, {
+      name: "顺风车"
+    }, {
+      name: "外卖"
+    }, {
+      name: "单车"
+    }, {
+      name: "礼橙专车"
+    }, {
+      name: "出租车"
+    }, {
+      name: "公交"
+    }, {
+      name: "代驾"
+    }, {
+      name: "豪华车"
+    }, {
+      name: "自驾租车"
+    }, {
+      name: "拼车"
+    }, {
+      name: "二手车"
+    }],
+    tabScroll: 0,
+    currentTab: 0,
+    windowHeight: '',
+    windowWidth: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  // onLoad: function (options) {
-    
-  // },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  onLoad: function () {
+    wx.getSystemInfo({  // 获取当前设备的宽高，文档有
+      success: (res) => {
+        this.setData({
+          windowHeight: res.windowHeight,
+          windowWidth: res.windowWidth
+        })
+      },
+    })
+  },
   onReady: function () {
-    var query = wx.createSelectorQuery().in(this),
-      _this = this;
-
-    _this.animation = wx.createAnimation()
-
-    query.select('#tabitemConsume').boundingClientRect(function (rect) {
-      _this.setData({
-        tabitemConsume: rect
-      });
+    wx.setNavigationBarTitle({ //修改标题文字
+      title: ''
     })
-
-
-    query.select('#tabitemRecharge').boundingClientRect(function (rect) {
-      _this.setData({
-        tabitemRecharge: rect
-      });
-      _this.setActiveTab('tabitemRecharge');
+  },
+  clickMenu: function (e) {
+    var current = e.currentTarget.dataset.current //获取当前tab的index
+    var tabWidth = this.data.windowWidth / 5 // 导航tab共5个，获取一个的宽度
+    this.setData({
+      tabScroll: (current - 2) * tabWidth //使点击的tab始终在居中位置
     })
-
-    query.exec();
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  // onShow: function () {
-    
-  // },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  // onHide: function () {
-    
-  // },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  // onUnload: function () {
-    
-  // },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  // onPullDownRefresh: function () {
-    
-  // },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  // onReachBottom: function () {
-    
-  // },
-
-  /**
-   * 用户点击右上角分享
-   */
-  // onShareAppMessage: function () {
-    
-  // },
-
-  tabChange(e) {
-    var id = e.detail.currentItemId;
-    this.setActiveTab(id);
-  },
-
-  tabclick(e) {
-    var id = e.target.id;
-    this.setActiveTab(id);
-  },
-
-  setActiveTab(id) {
-    var rect = this.data[id];
-    if (rect) {
-      this.animation.width(rect.width).translate(rect.left, 0);
-      this.setData({
-        activeTabId: id,
-        indicatorAnim: this.animation.step().export()
-      })
+    if (this.data.currentTab == current) {
+      return false
+    } else {
+      this.setData({ currentTab: current })
     }
   },
-
-  scroll() {
-
+  changeContent: function (e) {
+    var current = e.detail.current // 获取当前内容所在index,文档有
+    var tabWidth = this.data.windowWidth / 5
+    this.setData({
+      currentTab: current,
+      tabScroll: (current - 2) * tabWidth
+    })
   }
-
 })

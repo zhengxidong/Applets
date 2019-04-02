@@ -1,0 +1,22 @@
+<view class="navigation">
+  <scroll-view scroll-x="true" class="nav-scroll" scroll-with-animation="true" scroll-left="{{scrollLeft}}">
+    <block wx:for="{{navigation}}">
+      <view id="{{index}}" bindtap="bindtap" class="nav-item nav-item-{{index}} {{index==selectedTitle ? 'active' : ''}}">
+      {{item}}
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<swiper bindchange="bindChange" current='{{selectedTitle}}' duration="300" style="height:{{swiperHeight}}rpx">
+  <block wx:for="{{navigation}}">
+    <swiper-item id="current_{{index}}">
+      <scroll-view scroll-y="true" style="height: 100%;">
+        <view class="container">
+          <block wx:for="{{[1, 2, 3, 4, 5, 6, 7, 8, 9]}}">
+            <p>正文内容第一行</p><p>正文内容第二行</p><p>正文内容第三行</p>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </block>
+</swiper>

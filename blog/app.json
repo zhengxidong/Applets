@@ -4,9 +4,6 @@
     "pages/zhuanti/zhuanti",
     "pages/my/my"
   ],
-  "requiredBackgroundModes": [
-    "audio"
-  ],
   "window":{
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#CD96CD",
