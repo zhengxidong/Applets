@@ -11,6 +11,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+
+      //示例数据
       posts:[
           {
             postId:1,
@@ -247,7 +249,7 @@ Page({
         console.log("防止冒泡");
         var self = this;
         wx.setClipboardData({
-            data: "https://github.com/aquanlerou"
+            data: "https://github.com/zhengxidong"
         });
 
     },
