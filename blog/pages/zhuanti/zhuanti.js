@@ -1,30 +1,32 @@
 Page({
   data: {
     menuList: [{
-      name: "快车"
+      name: "前端"
     }, {
-      name: "顺风车"
+      name: "后端"
     }, {
-      name: "外卖"
+      name: "移动端"
     }, {
-      name: "单车"
+      name: "运维"
     }, {
-      name: "礼橙专车"
+      name: "Mac"
     }, {
-      name: "出租车"
-    }, {
-      name: "公交"
-    }, {
-      name: "代驾"
-    }, {
-      name: "豪华车"
-    }, {
-      name: "自驾租车"
-    }, {
-      name: "拼车"
-    }, {
-      name: "二手车"
-    }],
+      name: "其它"
+    }, 
+    // {
+    //   name: "公交"
+    // }, {
+    //   name: "代驾"
+    // }, {
+    //   name: "豪华车"
+    // }, {
+    //   name: "自驾租车"
+    // }, {
+    //   name: "拼车"
+    // }, {
+    //   name: "二手车"
+    // }
+    ],
     tabScroll: 0,
     currentTab: 0,
     windowHeight: '',
@@ -41,9 +43,9 @@ Page({
     })
   },
   onReady: function () {
-    wx.setNavigationBarTitle({ //修改标题文字
-      title: ''
-    })
+    // wx.setNavigationBarTitle({ //修改标题文字
+    //   title: ''
+    // })
   },
   clickMenu: function (e) {
     var current = e.currentTarget.dataset.current //获取当前tab的index

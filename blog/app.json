@@ -1,8 +1,10 @@
 {
   "pages":[
-    "pages/index/index",
+    "pages/splash/splash",
+    "pages/home/home",
     "pages/zhuanti/zhuanti",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/test/test"
   ],
   "window":{
     "backgroundTextStyle": "light",
@@ -18,7 +20,7 @@
     "backgroundColor":"#fff",
     "list":[
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "images/tab/ic_home_normal.png",
         "selectedIconPath": "images/tab/ic_home_select.png",
         "text":"首页"

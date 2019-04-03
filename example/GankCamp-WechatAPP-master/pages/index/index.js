@@ -11,12 +11,45 @@ var tabInitState = [false, false, false]
 
 Page({
   data: {
-    gankData: {},
+    gankData: {
+      // 'Android':{
+      //   'desc': '12313',
+      //   'who': '123123',
+      //   'publishedAt': 'test',
+      //   'url': 'test/test'
+      // }
+      'android':[
+        {
+          desc:'12313',
+          who:'123123',
+          publishedAt:'test',
+          url:'test/test1'
+        }
+      ],
+      // 'ios':[
+      //   {
+      //     'desc': '12313',
+      //     'who': '123123',
+      //     'publishedAt': 'test',
+      //     'url': 'test/test2'
+      //   }
+      // ],
+      // 'web':[
+      //   {
+      //     'desc': '12313',
+      //     'who': '123123',
+      //     'publishedAt': 'test',
+      //     'url': 'test/test3'
+      //   }
+      // ]
+    },
+    //gankData: {},
     loadingHidden: false,
     curSelClassifyIndex: 0
   },
   onLoad: function() {
     this.checkInitLoadGankData()
+    //console.log(this.checkInitLoadGankData())
   },
   // 加载干货数据
   // loadGankData: function(pageNo, callback) {
@@ -73,21 +106,6 @@ Page({
       curSelClassifyIndex: 2
     })
   },
-  onTitleBarsClick3: function () {
-    this.setData({
-      curSelClassifyIndex: 3
-    })
-  },
-  onTitleBarsClick4: function () {
-    this.setData({
-      curSelClassifyIndex: 4
-    })
-  },
-  onTitleBarsClick5: function () {
-    this.setData({
-      curSelClassifyIndex: 5
-    })
-  },
   /**
    * 获取分类名称
    * @param isApiName 是否是干货api需要的请求 url 名称
@@ -104,9 +122,11 @@ Page({
   },
   // 检查初始化加载干货数据（根据不同类别）
   checkInitLoadGankData: function() {
+    
     if (tabInitState[this.data.curSelClassifyIndex]) return
-
+    console.log(tabInitState[this.data.curSelClassifyIndex])
     var curClassifyName = this.getClassifyName()
+    console.log(curClassifyName)
     // this.loadGankData(1, results => {
     //   curPageIndex[this.data.curSelClassifyIndex] = 2
     //   this.data.gankData[curClassifyName] = results
@@ -116,5 +136,13 @@ Page({
     //   })
     //   tabInitState[this.data.curSelClassifyIndex] = true
     // })
+    curPageIndex[this.data.curSelClassifyIndex] = 2
+    //this.data.initData[curClassifyName] = results
+    console.log(this.data.gankData)
+    this.setData({
+      loadingHidden: true,
+      gankData: this.data.gankData[curClassifyName]
+    })
+    tabInitState[this.data.curSelClassifyIndex] = true
   }
 })

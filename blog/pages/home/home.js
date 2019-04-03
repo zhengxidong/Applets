@@ -1,6 +1,14 @@
 //var musicUrl = 'http://www.ytmp3.cn/down/49676.mp3'
 //var musicUrl = 'https://www.itellyou.site/MoveYourBody.mp3'
-var musicUrl = 'https://www.itellyou.site/pianai.mp3'
+//var musicUrl = 'https://www.itellyou.site/pianai.mp3'
+var host = 'https://www.itellyou.site/'
+var musicUrlArr = ['MoveYourBody.mp3','49676.mp3','pianai.mp3'];
+
+//产生随机数
+var rand = Math.round(Math.random() * (musicUrlArr.length - 1));
+console.log('随机数：' + rand)
+var musicUrl = host + musicUrlArr[rand];
+console.log('随机音乐：'+musicUrl)
 //获取音频上下文
 const backgroundAudioManager = wx.getBackgroundAudioManager();
 
@@ -10,6 +18,13 @@ Page({
      * 页面的初始数据
      */
 	data: {
+
+    //页面初始化配置 
+    winWidth: 0,
+    winHeight: 0,
+    // tab切换  
+    currentTab: 0,
+    // 音乐初始化配置
     initPlayingMusic: true, //默认页面加载播放音乐
     isPlayingMusic: false,
     music_url: musicUrl,    //音乐地址
@@ -76,6 +91,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
 	onLoad: function (options) {
+    var that = this
 		//加载数据
     console.log("onLoad")
     wx.playBackgroundAudio({
@@ -84,8 +100,43 @@ Page({
       coverImgUrl: ''
     })
 		//这里数据写死，假装我是在服务器拿到的数据
-	},
 
+    //监听音乐停止
+    wx.onBackgroundAudioStop(function(){
+      console.log('音乐已经停止')
+      // that.setData({
+      //   isPlayingMusic: false
+      // })
+    });
+    //获取系统信息 
+    wx.getSystemInfo( {
+
+      success: function ( res ) {
+        that.setData( {
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight
+        });
+      }
+
+    });
+	},
+  onShow: function (){
+
+    wx.getBackgroundAudioPlayerState({
+      success:function(res){
+        console.log('音乐播放状态:'+res.status)
+        if(res.status != 1)
+        {
+          wx.playBackgroundAudio({
+            dataUrl: musicUrl,
+            title: '',
+            coverImgUrl: ''
+          });
+        }
+      }
+    });
+    
+  },
 	//tap切换
 	onTabsItemTap: function (event) {
 		var index = event.currentTarget.dataset['index'];
@@ -192,7 +243,7 @@ Page({
       //   initPlayingMusic: false
       // })
     }
-  }
+  },
 
 	// onReachBottom: function () {
 	// 	if (!this.data.isLoadedAll) {
@@ -200,4 +251,26 @@ Page({
 	// 		this._loadData(this.data.id, this.data.pageIndex);
 	// 	}
 	// }
+
+    /***********************选项卡操作*****************************/
+    //滑动切换tab 
+    bindChange: function (e) {
+
+    var that = this;
+    that.setData( { currentTab: e.detail.current });
+
+  },
+  //点击tab切换 
+  swichNav: function (e) {
+
+    var that = this;
+
+    if ( this.data.currentTab === e.target.dataset.current ) {
+      return false;
+    } else {
+      that.setData( {
+        currentTab: e.target.dataset.current
+      })
+    }
+  }
 })

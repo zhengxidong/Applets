@@ -20,6 +20,8 @@ Page({
     if (null != options)
       app.globalData.hostUserId = options.hostUserId
 
+    console.log(api.splashWave)
+    console.log(api.splashLoading)
     that.setData({
       //图片地址
       wave: api.splashWave,

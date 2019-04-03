@@ -1,3 +1,44 @@
+/**选项卡**/
+.swiper-tab{
+	width: 100%;
+	border-bottom: 1rpx solid #efefef;
+	text-align: center;
+	line-height: 80rpx;
+  position: fixed;
+  z-index: 10001;
+  background-color: #fff;
+}
+.swiper-tab-list{  
+  font-size: 30rpx;
+  display: inline-block;
+	width: 33.33%;
+	color: #777777;
+}
+.on{ 
+  color: #CD96CD;
+	border-bottom: 1rpx solid #CD96CD;
+}
+ 
+.swiper-box{ 
+  display: block; 
+  height: 100%; 
+  width: 100%; 
+  overflow: hidden; 
+}
+.swiper-box view{
+	text-align: center;
+  margin-top: 20rpx;
+}
+/* .swiper-item-list{
+  margin-top: 90rpx;
+} */
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
 /* 右上角音乐件 */
 .background_music{
   position: fixed;
@@ -80,7 +121,7 @@
   display: none;
 } */
 
-/* 中间内容 */
+/* 选项卡下的内容 */
 .top {
     width: 100%;
     display: flex;
@@ -111,11 +152,10 @@
     padding: 0 20rpx;
 }
 
-.on {
-    /* border-bottom: solid 2px #db363e; */
-    border-bottom: solid 2px #CD96CD;
+/* .on {
+    border-bottom: solid 1px #CD96CD;
     
-}
+} */
 
 .box {
     display: flex;

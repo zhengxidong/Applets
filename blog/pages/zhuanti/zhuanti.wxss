@@ -4,7 +4,7 @@
 }
 .tab{
  width: 100%;
- height: 100rpx;
+ height: 90rpx;
  position: fixed;
  top: 0;
  left: 0;
@@ -12,20 +12,22 @@
  white-space: nowrap;
  box-sizing: border-box;
  overflow: hidden;
- line-height: 100rpx;
- 
+ line-height: 80rpx;
+ border-bottom:1rpx solid #efefef;
+
 }
 .tab-item{
  display: inline-block;
  width: 20%;
   /* height: 90%; */
  text-align: center;
- font-size: 14px;
+ font-size: 30rpx;
  color: #8f9193;
 }
 .active{
  /* color: #ff500c; */
  color: #cd96cd;
+ border-bottom:1rpx solid #cd96cd;
 
  /* height: 96%;
  border-bottom-color: #ff500c;

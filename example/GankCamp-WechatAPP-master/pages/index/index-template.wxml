@@ -11,6 +11,6 @@
       </view>
     </navigator>
 
-    <include src="../common/loadmore.wxml"/>
+    <!-- <include src="../common/loadmore.wxml"/> -->
   </scroll-view>
 </template>
